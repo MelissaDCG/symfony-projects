@@ -22,6 +22,12 @@ class Fournisseur
      */
     private $fournisseur;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Editeur::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $editeur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,5 +43,25 @@ class Fournisseur
         $this->fournisseur = $fournisseur;
 
         return $this;
+    }
+
+    public function getEditeur(): ?Editeur
+    {
+        return $this->editeur;
+    }
+
+    public function setEditeur(?Editeur $editeur): self
+    {
+        $this->editeur = $editeur;
+
+        return $this;
+    }
+
+    /**
+    * Generates the magic method
+    */
+    public function __toString()
+    {
+        return $this->fournisseur;
     }
 }

@@ -20,7 +20,7 @@ class Produit
     /**
      * @ORM\Column(type="string", length=8)
      */
-    private $ref_bd;
+    private $refBd;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -35,12 +35,12 @@ class Produit
     /**
      * @ORM\Column(type="decimal", precision=8, scale=2)
      */
-    private $prix_public;
+    private $prixPublic;
 
     /**
      * @ORM\Column(type="decimal", precision=8, scale=2)
      */
-    private $prix_editeur;
+    private $prixEditeur;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -50,17 +50,36 @@ class Produit
     /**
      * @ORM\Column(type="bigint", nullable=true)
      */
-    private $ref_fournisseur;
+    private $refFournisseur;
 
     /**
      * @ORM\Column(type="bigint", nullable=true)
      */
-    private $ref_editeur;
+    private $refEditeur;
 
     /**
      * @ORM\ManyToOne(targetEntity=Auteur::class, inversedBy="produits")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $auteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Genre::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $genre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Fournisseur::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $fournisseur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Editeur::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $editeur;
 
     public function getId(): ?int
     {
@@ -69,12 +88,12 @@ class Produit
 
     public function getRefBd(): ?string
     {
-        return $this->ref_bd;
+        return $this->refBd;
     }
 
-    public function setRefBd(string $ref_bd): self
+    public function setRefBd(string $refBd): self
     {
-        $this->ref_bd = $ref_bd;
+        $this->refBd = $refBd;
 
         return $this;
     }
@@ -105,24 +124,24 @@ class Produit
 
     public function getPrixPublic(): ?string
     {
-        return $this->prix_public;
+        return $this->prixPublic;
     }
 
-    public function setPrixPublic(string $prix_public): self
+    public function setPrixPublic(string $prixPublic): self
     {
-        $this->prix_public = $prix_public;
+        $this->prixPublic = $prixPublic;
 
         return $this;
     }
 
     public function getPrixEditeur(): ?string
     {
-        return $this->prix_editeur;
+        return $this->prixEditeur;
     }
 
-    public function setPrixEditeur(string $prix_editeur): self
+    public function setPrixEditeur(string $prixEditeur): self
     {
-        $this->prix_editeur = $prix_editeur;
+        $this->prixEditeur = $prixEditeur;
 
         return $this;
     }
@@ -141,24 +160,24 @@ class Produit
 
     public function getRefFournisseur(): ?string
     {
-        return $this->ref_fournisseur;
+        return $this->refFournisseur;
     }
 
-    public function setRefFournisseur(?string $ref_fournisseur): self
+    public function setRefFournisseur(?string $refFournisseur): self
     {
-        $this->ref_fournisseur = $ref_fournisseur;
+        $this->refFournisseur = $refFournisseur;
 
         return $this;
     }
 
     public function getRefEditeur(): ?string
     {
-        return $this->ref_editeur;
+        return $this->refEditeur;
     }
 
-    public function setRefEditeur(?string $ref_editeur): self
+    public function setRefEditeur(?string $refEditeur): self
     {
-        $this->ref_editeur = $ref_editeur;
+        $this->refEditeur = $refEditeur;
 
         return $this;
     }
@@ -171,6 +190,42 @@ class Produit
     public function setAuteur(?Auteur $auteur): self
     {
         $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getFournisseur(): ?Fournisseur
+    {
+        return $this->fournisseur;
+    }
+
+    public function setFournisseur(?Fournisseur $fournisseur): self
+    {
+        $this->fournisseur = $fournisseur;
+
+        return $this;
+    }
+
+    public function getEditeur(): ?Editeur
+    {
+        return $this->editeur;
+    }
+
+    public function setEditeur(?Editeur $editeur): self
+    {
+        $this->editeur = $editeur;
 
         return $this;
     }

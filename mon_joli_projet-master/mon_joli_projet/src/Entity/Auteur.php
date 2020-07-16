@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass=AuteurRepository::class)
  */
@@ -25,7 +26,7 @@ class Auteur
     private $auteur;
 
     /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="auteur")
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="auteur", orphanRemoval=true)
      */
     private $produits;
 
@@ -80,5 +81,13 @@ class Auteur
         }
 
         return $this;
+    }
+
+    /**
+    * Generates the magic method
+    */
+    public function __toString()
+    {
+        return $this->auteur;
     }
 }
