@@ -2,17 +2,18 @@
 
 namespace App\Controller\Admin;
 
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
+use App\Entity\User;
+use App\Entity\Genre;
+use App\Entity\Auteur;
+use App\Entity\Editeur;
+use App\Entity\Produit;
+use App\Entity\Fournisseur;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Auteur;
-use App\Entity\Produit;
-use App\Entity\Editeur;
-use App\Entity\Fournisseur;
-use App\Entity\Genre;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class BdDashboardController extends AbstractDashboardController
 {
@@ -29,12 +30,14 @@ class BdDashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('BD');
+            ->setTitle('Tableau de bord');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linktoRoute ('Accueil', 'fa fa-home', 'home');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+        yield MenuItem::section('Mes BD');        
         yield MenuItem::linkToCrud('Auteur', 'fas fa-pen-alt', Auteur::class);
         yield MenuItem::linkToCrud('Editeur', 'fas fa-warehouse', Editeur::class);
         yield MenuItem::linkToCrud('Fournisseur', 'fas fa-truck-loading', Fournisseur::class);

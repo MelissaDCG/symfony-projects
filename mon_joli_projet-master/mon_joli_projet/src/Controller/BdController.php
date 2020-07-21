@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\AuteurRepository;
+use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -10,10 +12,12 @@ class BdController extends AbstractController
     /**
      * @Route("/auteurs", name="bd")
      */
-    public function index()
+    public function index(AuteurRepository $repo)
     {
+        $auteurs = $repo->findAll();
+        
         return $this->render('bd/index.html.twig', [
-            'controller_name' => 'BdController',
+            'auteurs' => $auteurs
         ]);
     }
 
@@ -29,11 +33,27 @@ class BdController extends AbstractController
     }
 
     /**
-     * @Route("/bd/livre/1", name="bd_show")
+     * @Route("/auteurs/{id}", name="bd_show")
      */
-    public function show()
+    public function show($id, ProduitRepository $repo)
     {
-        return $this->render('bd/show.html.twig');
+        $produits = $repo->findBy(array("auteur" => $id));
+
+        $couvertures = array();
+        $dir = "images/";       
+        if ($dossier = opendir($dir)) {
+            while (($item = readdir($dossier)) !== false) {
+                if ($item[0] == '.') { continue; }
+                $pos_point = strpos($item,'.');
+                $item = substr($item,0,$pos_point);
+                $couvertures[] = strtoupper($item);
+            }
+            closedir($dossier);
+        }
+        return $this->render('bd/show.html.twig',[
+            'produits' => $produits,
+            'couvertures' => $couvertures
+        ]);
     }
 
 }
