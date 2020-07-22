@@ -5,12 +5,12 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
         {% endblock %}
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('/images/logo/logoBd.png') }}"class="w-25" </a>
+            <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('/images/logo/logoBd.png') }}" class="logo"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('bd') }}">BD</a>
@@ -35,9 +35,11 @@
                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ app.user.username }}
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: -90px">
-                                <a href="/admin" class="dropdown-item">Tableau de bord</a>
-                                <div class="dropdown-divider"></div>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: -290px; position: absolute;">
+                                {% if 'ROLE_ADMIN' in app.user.roles %}
+                                    <a href="/admin" class="dropdown-item">Tableau de bord</a>
+                                    <div class="dropdown-divider"></div>
+                                {% endif %}
                                 <a class="dropdown-item" href="{{ path('security_logout') }}">Deconnexion</a>
                             </div>
                         </li>
@@ -47,10 +49,6 @@
                         </li>
                     {% endif %}
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
         <div class="container">
