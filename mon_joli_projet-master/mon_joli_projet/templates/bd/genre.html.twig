@@ -9,6 +9,7 @@
             {% for genre in genres %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{{ path('genre_show',{'id': genre.id }) }}" >{{ genre.genre }}</a>
+                    <span class="badge badge-primary badge-pill">{{ genre.produits|length }}</span>
                 </li>        
             {% endfor %}
         </ul>
