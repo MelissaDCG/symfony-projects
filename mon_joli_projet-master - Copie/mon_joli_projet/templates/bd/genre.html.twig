@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste des genres{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <ul class="list-group list-group-flush">
+            {% for genre in genres %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{{ path('genre_show',{'id': genre.id }) }}" >{{ genre.genre }}</a>
+                </li>        
+            {% endfor %}
+        </ul>
+
+        <div class="navigaton">
+            {{ knp_pagination_render(genres)}}
+        </div>    
+    </div>
+
+{% endblock %}

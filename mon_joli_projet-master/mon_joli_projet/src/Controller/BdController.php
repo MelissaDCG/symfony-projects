@@ -25,7 +25,7 @@ class BdController extends AbstractController
             // Define the page parameter
             $request->query->getInt('page', 1),
             // Items per page
-            5
+            10
         );
 
         return $this->render('bd/index.html.twig', [
