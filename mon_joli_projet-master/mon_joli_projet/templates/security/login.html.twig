@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Connectez-vous !</h1>
-
-    <form action="{{ path('security_login') }}" method="POST">
-        <div class="form-group">
-            <input placeholder="Votre email" required name="_username" type="text" class="form-control">
-        </div>
-        <div class="formg-group">
-            <input placeholder="Mot de passe" required name="_password" type="password" class="form-control">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Se connecter</button>
-        </div>
-    </form>
-
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card my-5 col-lg-6" style="width: 18rem;">
+            <div class="card-body">
+                <h1 class="card-title myFont text-center my-5 text-danger">Se connecter</h1>
+                <form action="{{ path('security_login') }}" method="POST">
+                    <div class="form-group">
+                        <input placeholder="Votre email" required name="_username" type="text" class="form-control">
+                    </div>
+                    <div class="formg-group">
+                        <input placeholder="Mot de passe" required name="_password" type="password" class="form-control">
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success mt-2">Se connecter</button>
+                    </div>
+                    <p class="text-center">Vous n'avez pas de compte?<a href="{{ path('security_registration')}}" class="text-danger"> Incrivez vous !</a></p>
+                </form>
+            </div>
+        </div>        
+    </div>
 {% endblock %}

@@ -1,22 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for produit in produits %}
-        <article>
-            <h2>{{ produit.titre }}</h2>
-            <div>
-                {{ produit.heros }} - {{ produit.auteur}}
-            </div>
-            <div class="content">
-                {% if produit.refBd in couvertures %}
-                    <img src="{{ asset('images/') }}{{ produit.refBd }}{{'.jpg'}}" alt="couverture {{ produit.refBd }}" class="thumbnail">
-                {% else %}
-                    <img src="{{ asset('images/defaut.jpg') }}" alt="Aucune couverture" class="thumbnail">
-                {% endif %}   
-                <p>{{ produit.resume }}</p>
-                <p>{{ produit.refBd}}</p>
-                <hr>
-            </div>
-        </article>
-    {% endfor %}
+    <div class="container">
+        {% for produit in produits %}
+            <article>
+                <h2>{{ produit.titre }}</h2>
+                <div>
+                    {{ produit.heros }} - {{ produit.auteur}}
+                </div>
+                <div class="content">
+                    {% if produit.refBd in couvertures %}
+                        <img src="{{ asset('images/') }}{{ produit.refBd }}{{'.jpg'}}" alt="couverture {{ produit.refBd }}" class="thumbnail">
+                    {% else %}
+                        <img src="{{ asset('images/defaut.jpg') }}" alt="Aucune couverture" class="thumbnail">
+                    {% endif %}   
+                    <p>{{ produit.resume }}</p>
+                    <p>{{ produit.refBd}}</p>
+                    <hr>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
 {% endblock %}

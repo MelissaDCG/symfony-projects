@@ -42,6 +42,6 @@ class BdDashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Editeur', 'fas fa-warehouse', Editeur::class);
         yield MenuItem::linkToCrud('Fournisseur', 'fas fa-truck-loading', Fournisseur::class);
         yield MenuItem::linkToCrud('Genre', 'far fa-list-alt', Genre::class);
-        yield MenuItem::linkToCrud('Produit', 'fas fa-book', Produit::class);
+        yield MenuItem::linkToCrud('Produit', 'fas fa-book', Produit::class);    
     }
 }

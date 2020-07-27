@@ -115,4 +115,14 @@ class BdController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/about", name="about")
+     */
+    public function about()
+    {
+        return $this->render('bd/about.html.twig',[
+            'title' => 'Qui nous sommes?'
+        ]);
+    }
+
 }

@@ -4,12 +4,13 @@
 
 {% block body %}
 
-    <div class="example-wrapper">
+    <div class="container">
+        <h1 class="myFont text-center text-danger mt-4">Genre</h1>
         <ul class="list-group list-group-flush">
             {% for genre in genres %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{{ path('genre_show',{'id': genre.id }) }}" >{{ genre.genre }}</a>
-                    <span class="badge badge-primary badge-pill">{{ genre.produits|length }}</span>
+                    <span class="badge badge-danger badge-pill">{{ genre.produits|length }}</span>
                 </li>        
             {% endfor %}
         </ul>

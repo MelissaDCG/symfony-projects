@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos{% endblock %}
+
+{% block body %}
+    <div class="d-lg-flex flex-lg-row">   
+        <div class="mt-5 mt-lg-0 col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-center myFont display-3 text-danger">{{ title }}</h1>
+            <p class="p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia illum corrupti accusamus tempore, 
+               quaerat aliquam corporis, non quas inventore maiores est libero vero. Nemo ipsa reprehenderit, 
+               numquam rerum ab excepturi at fugiat soluta molestias repudiandae id accusantium ut placeat sit! 
+               Nihil quibusdam debitis praesentium tempora tenetur! Et itaque harum ipsum?</p>
+            <p  class="p-2">Odio repellendus dolores doloribus amet obcaecati cum accusamus ut nesciunt ea corporis alias 
+               corrupti sit consectetur, nobis quisquam quaerat, vel rem hic atque in velit. Aliquam, possimus? 
+               Non numquam corrupti ex nihil quae. Mollitia cumque ipsam maxime quaerat iure, sed nulla debitis 
+               asperiores minima consectetur repellat eaque veniam nam in.</p>
+            
+            <ul class="nav justify-content-around">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-instagram text-danger fa-3x"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-twitter fa-3x text-danger"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-facebook-f fa-3x text-danger"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-pinterest-p fa-3x text-danger"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-lg-4">
+            <img class="img-fluid m-0 p-0 w-100" src="{{ asset('images/about/aboutBD.jpg')}}" alt="cover">
+        </div>
+    </div>
+{% endblock %}

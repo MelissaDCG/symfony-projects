@@ -26,9 +26,15 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
+            // add the role ROLE_USER par defaut 
+            $user->setRoles(["ROLE_USER"]);
 
             $manager->persist($user);
             $manager->flush();
+
+            $this->addFlash('success','Votre compte a été créé !');
+
+            return $this->redirectToRoute('security_registration');
         }
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView(),

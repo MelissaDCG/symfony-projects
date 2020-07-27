@@ -4,18 +4,19 @@
 
 {% block body %}
 
-    <div class="example-wrapper">
+    <div class="container">
+        <h1 class="myFont text-center mt-4 text-danger">BD</h1>
         <ul class="list-group list-group-flush">
             {% for auteur in auteurs %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{{ path('bd_show',{'id': auteur.id }) }}" >{{ auteur.auteur }}</a>
-                    <span class="badge badge-primary badge-pill">{{ auteur.produits|length }}</span>
+                    <span class="badge badge-danger badge-pill">{{ auteur.produits|length }}</span>
                 </li>        
             {% endfor %}
         </ul>
 
         <div class="navigaton">
-            {{ knp_pagination_render(auteurs)}}
+            {{ knp_pagination_render(auteurs) }}
         </div>    
     </div>
 

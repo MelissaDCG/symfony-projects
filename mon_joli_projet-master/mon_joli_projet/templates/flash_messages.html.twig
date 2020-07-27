@@ -3,9 +3,9 @@
         {% for message in messages %}
             <div class="alert alert-{{ type }} alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert">
-                    <span arie-hidden="rue">&times;</span>
+                    <span arie-hidden="true">&times;</span>
                     <span class='sr-only'>Close</span>
-                <button>
+                </button>
                 {{ message | raw }}  
             </div>
         {% endfor %}
