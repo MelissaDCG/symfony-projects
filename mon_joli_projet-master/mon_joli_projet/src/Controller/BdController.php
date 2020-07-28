@@ -48,9 +48,11 @@ class BdController extends AbstractController
     /**
      * @Route("/auteurs/{id}", name="bd_show")
      */
-    public function show($id, ProduitRepository $repo)
+    public function show($id, ProduitRepository $repo, AuteurRepository $auteurRepo)
     {
         $produits = $repo->findBy(array("auteur" => $id));
+
+        $auteur = $auteurRepo->find($id);
 
         $couvertures = array();
         $dir = "images/";       
@@ -65,7 +67,8 @@ class BdController extends AbstractController
         }
         return $this->render('bd/show.html.twig',[
             'produits' => $produits,
-            'couvertures' => $couvertures
+            'couvertures' => $couvertures,
+            'auteur' => $auteur
         ]);
     }
 
@@ -94,9 +97,11 @@ class BdController extends AbstractController
     /**
      * @Route("/genre/{id}", name="genre_show")
      */
-    public function genreShow($id, ProduitRepository $repo)
+    public function genreShow($id, ProduitRepository $repo, GenreRepository $genreRepo)
     {
         $produits = $repo->findBy(array("genre" => $id));
+
+        $genre = $genreRepo->find($id);
 
         $couvertures = array();
         $dir = "images/";       
@@ -111,7 +116,8 @@ class BdController extends AbstractController
         }
         return $this->render('bd/genreShow.html.twig',[
             'produits' => $produits,
-            'couvertures' => $couvertures
+            'couvertures' => $couvertures,
+            'genre' => $genre
         ]);
     }
 

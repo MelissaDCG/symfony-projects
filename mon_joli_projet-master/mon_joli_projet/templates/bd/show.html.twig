@@ -2,7 +2,33 @@
 
 {% block body %}
     <div class="container">
-        {% for produit in produits %}
+        <h1 class="myFont text-center text-danger my-4">{{ auteur.auteur }}</h1>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            {% for produit in produits %}
+                <div class="card mb-3 w-75"  >
+                    <div class="row no-gutters">
+                        <div class="col-md-4 p-2">
+                            {% if produit.refBd in couvertures %}
+                                <img src="{{ asset('images/') }}{{ produit.refBd }}{{'.jpg'}}" 
+                                    alt="couverture {{ produit.refBd }}" class="card-img thumbnail">
+                            {% else %}
+                                <img src="{{ asset('images/defaut.jpg') }}" alt="Aucune couverture" class="thumbnail card-img">
+                            {% endif %}   
+                        </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ produit.titre }}</h5>
+                        <p class="card-text">{{ produit.heros }} - {{ produit.auteur}}</p>
+                        <p class="card-text">{{ produit.resume }}</p>
+                        <p class="card-text">{{ produit.refBd}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {# version prof en commentaire #}
+        {# {% for produit in produits %}
             <article>
                 <h2>{{ produit.titre }}</h2>
                 <div>
@@ -19,6 +45,6 @@
                     <hr>
                 </div>
             </article>
-        {% endfor %}
+        {% endfor %} #}
     </div>
 {% endblock %}
