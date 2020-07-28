@@ -4,32 +4,32 @@
 
 {% block body %}
 <div class="container-fluid p-0">
-    <div class="d-lg-flex flex-lg-row">   
+    <div class="d-lg-flex flex-lg-row mb-4 mb-lg-0">   
         <div class="mt-5 mt-lg-0 col-12 col-lg-5 d-flex flex-column justify-content-center align-items-center">
             <h1 class="text-center myFont display-3 text-danger">{{ title }}</h1>
-            <p class="p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor asperiores 
+            <p class="p-2 fontSize text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor asperiores 
             porro ipsum molestiae nihil, consectetur quia ducimus aperiam animi minima incidunt. 
             Quos veritatis aliquam ullam saepe, perspiciatis dolore vel facere. Itaque aperiam 
             non commodi quae alias, saepe doloribus incidunt nisi.</p>
-            <a href="{{ path('bd')}}" class="btn btn-warning myFont text-white mb-5 mb-lg-0"><h4 class="mt-2">Commencez !</h4></a>
+            <a href="{{ path('bd')}}" class="btn btn-warning myFont text-white mb-5 mb-lg-0"><h4 class="mt-2 display-4">Commencez !</h4></a>
         </div>
         <div class="col-12 col-lg-7">
             <img class="img-fluid m-0 p-0 w-100" src="{{ asset('images/home/bdCover.jpg')}}" alt="cover">
         </div>
     </div>
     <div class="bg-gradient p-5 m-0" style="background-color: #a40606">
-        <h2 class="myFont text-center text-white">Suivez-nous</h2>
-        <ul class="nav justify-content-around">
-            <li class="nav-item">
+        <h2 class="myFont text-center text-white display-4">Suivez-nous</h2>
+        <ul class="nav justify-content-center">
+            <li class="nav-item col-6 col-lg-3 text-center my-4">
                 <a class="nav-link" href="#"><i class="fab fa-instagram text-white fa-3x"></i></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item col-6 col-lg-3 text-center my-4">
                 <a class="nav-link" href="#"><i class="fab fa-twitter fa-3x text-white"></i></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item col-6 col-lg-3 text-center my-4">
                 <a class="nav-link" href="#"><i class="fab fa-facebook-f fa-3x text-white"></i></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item col-6 col-lg-3 text-center my-4">
                 <a class="nav-link" href="#"><i class="fab fa-pinterest-p fa-3x text-white"></i></a>
             </li>
         </ul>

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h1 class="myFont text-center text-danger my-4">{{ auteur.auteur }}</h1>
+    <div class="container-lg container-fluid">
+        <h1 class="myFont text-center text-danger my-3 display-3">{{ auteur.auteur }}</h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
             {% for produit in produits %}
-                <div class="card mb-3 w-75"  >
+                <div class="card mb-3 sizeCard"  >
                     <div class="row no-gutters">
                         <div class="col-md-4 p-2">
                             {% if produit.refBd in couvertures %}

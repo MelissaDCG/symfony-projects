@@ -5,7 +5,7 @@
 }
 
 .logo {
-    width: 150px;
+    width: 250px;
 }
 
 .active a.page-link {
@@ -24,6 +24,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.fontSize {
+    font-size: 1.5rem !important;
+}
+
 @font-face{
     font-family: "Bangers-Regular";
     src: url("fonts/Bangers-Regular.ttf");
@@ -36,4 +40,23 @@ body {
 .bg-gradient {
     background-color: #dc3545;
     background-image: linear-gradient(315deg, #dc3545 20%, #d98324 90%); 
+}
+
+.sizeCard {
+    width: 75% !important;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .logo {
+        width: 150px;
+    }
+
+    .fontSize {
+        font-size: 1.25rem !important;
+    }
+
+    .sizeCard {
+        width: 50% !important;
+    }
 }

@@ -5,17 +5,17 @@
 {% block body %}
 
     <div class="container">
-        <h1 class="myFont text-center text-danger mt-4">Genre</h1>
+        <h1 class="myFont text-center text-danger mt-3 display-3">Genre</h1>
         <ul class="list-group list-group-flush">
             {% for genre in genres %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{{ path('genre_show',{'id': genre.id }) }}" >{{ genre.genre }}</a>
-                    <span class="badge badge-danger badge-pill">{{ genre.produits|length }}</span>
+                    <a class="fontSize" href="{{ path('genre_show',{'id': genre.id }) }}" >{{ genre.genre }}</a>
+                    <span class="badge badge-danger badge-pill fontSize">{{ genre.produits|length }}</span>
                 </li>        
             {% endfor %}
         </ul>
 
-        <div class="navigaton">
+        <div class="navigaton fontSize">
             {{ knp_pagination_render(genres)}}
         </div>    
     </div>

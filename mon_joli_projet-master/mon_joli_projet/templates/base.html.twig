@@ -18,41 +18,41 @@
 
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+                    <li class="nav-item">
+                        <a class="nav-link fontSize" href="{{ path('home') }}">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('bd') }}">BD</a>
+                        <a class="nav-link fontSize" href="{{ path('bd') }}">BD</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('genre') }}">Genre</a>
+                        <a class="nav-link fontSize" href="{{ path('genre') }}">Genre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                        <a class="nav-link fontSize" href="{{ path('contact') }}">Contact</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-secondary my-2 my-sm-0 fontSize" type="submit">Search</button>
                 </form>
                 <ul class="nav nabar-nav float-lg-right">
                     {% if app.user %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                            <a class="nav-link dropdown-toggle text-white fontSize" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ app.user.username }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dLabel" style="left: -90px;">
                                 {% if 'ROLE_ADMIN' in app.user.roles %}
-                                    <a href="/admin" class="dropdown-item">Tableau de bord</a>
+                                    <a href="/admin" class="dropdown-item fontSize">Tableau de bord</a>
                                     <div class="dropdown-diviseur"></div>
-                                    <a href="{{ path('security_logout')}}" class="dropdown-item">Déconnexion</a>
+                                    <a href="{{ path('security_logout')}}" class="dropdown-item fontSize">Déconnexion</a>
                                 {% endif %}
                             </div>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a href="{{ path('security_login') }}" class="btn btn-warning text-white ml-lg-2">Connexion</a>
+                            <a href="{{ path('security_login') }}" class="btn btn-warning text-white ml-lg-2 fontSize">Connexion</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -64,23 +64,24 @@
             {% block body %}{% endblock %}
         </div>
         <footer class="footer bg-danger text-white">
-            <ul class="nav justify-content-center">
+            <ul class="nav justify-content-center pt-5 pb-2">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ path('about') }}">Qui nous sommes</a>
+                    <a class="nav-link text-white fontSize" href="{{ path('about') }}">Qui nous sommes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="{{ path('contact') }}">Contactez-nous</a>
+                    <a class="nav-link  text-white fontSize" href="{{ path('contact') }}">Contactez-nous</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="{{ path('home') }}">Accueil</a>
+                    <a class="nav-link  text-white fontSize" href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="{{ path('bd') }}">BD</a>
+                    <a class="nav-link  text-white fontSize" href="{{ path('bd') }}">BD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="{{ path('genre') }}">Genre</a>
+                    <a class="nav-link  text-white fontSize" href="{{ path('genre') }}">Genre</a>
                 </li>
             </ul>
+            <p class="text-center p-4 fontSize">© {{ "now"|date("Y") }}  BD - Un projet Symfony</p>
         </footer>        
         {% block javascripts %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
