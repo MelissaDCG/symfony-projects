@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container-lg container-fluid">
+        <div class="container">
         <h1 class="myFont text-center text-danger my-3 display-3">{{ genre.genre }}</h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
             {% for produit in produits %}
