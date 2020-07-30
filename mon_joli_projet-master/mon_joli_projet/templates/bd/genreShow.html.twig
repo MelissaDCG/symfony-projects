@@ -2,8 +2,7 @@
 
 {% block body %}
     <div class="container-lg container-fluid">
-        <div class="container">
-        <h1 class="myFont text-center text-danger my-3 display-3">{{ genre.genre }}</h1>
+        <h1 class="myFont text-center text-danger my-3 display-3">{{ auteur.auteur }}</h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
             {% for produit in produits %}
                 <div class="card mb-3 sizeCard"  >
@@ -16,14 +15,14 @@
                                 <img src="{{ asset('images/defaut.jpg') }}" alt="Aucune couverture" class="thumbnail card-img">
                             {% endif %}   
                         </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                        <h5 class="card-title">{{ produit.titre }}</h5>
-                        <p class="card-text">{{ produit.heros }} - {{ produit.auteur}}</p>
-                        <p class="card-text">{{ produit.resume }}</p>
-                        <p class="card-text">{{ produit.refBd}}</p>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ produit.titre }}</h5>
+                                <p class="card-text">{{ produit.heros }} - {{ produit.auteur}}</p>
+                                <p class="card-text">{{ produit.resume }}</p>
+                                <p class="card-text">{{ produit.refBd}}</p>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             {% endfor %}
